@@ -1,0 +1,36 @@
+basePath: /api
+consumes:
+- application/json
+host: localhost:9090
+info:
+  description: REST Interface for DNS IPs resolution
+  title: ADNS Resolver
+  version: ""
+paths:
+  /{hostname}:
+    get:
+      description: Resolves IPs from a specified hostname
+      operationId: resolve#resolve
+      parameters:
+      - description: Hostname to resolve
+        in: path
+        name: hostname
+        required: true
+        type: string
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+        "204":
+          description: The given hostname couldn't be resolved
+      schemes:
+      - http
+      summary: resolve resolve
+      tags:
+      - resolve
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"
